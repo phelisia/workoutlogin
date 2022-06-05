@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".SignupActivity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -14,6 +15,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
+        android:background="#C02681"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -22,8 +24,12 @@
             android:id="@+id/etFirstname"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:elegantTextHeight="false"
             android:hint="@string/enter_firstname"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textColor="#EDE1E1"
+            android:textSize="25sp"
+            android:textStyle="normal" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -34,6 +40,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
+        android:background="#C02681"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilFirstname">
@@ -43,7 +50,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enter_second_namee"
-            android:inputType="text" />
+            android:inputType="text"
+            android:textSize="25sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -54,6 +62,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
+        android:background="#C02681"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilSecondname"
@@ -65,6 +74,7 @@
             android:layout_height="wrap_content"
             android:hint="@string/enter_emaill"
             android:inputType="text"
+            android:textSize="25sp"
             app:textInputLayoutFocusedRectEnabled="false" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -76,6 +86,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
+        android:background="#C02681"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilEmail"
@@ -86,7 +97,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/enter_passwordd"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textSize="25sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -97,6 +109,7 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
+        android:background="#C02681"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPassword"
@@ -107,7 +120,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="@string/confirm_password"
-            android:inputType="textPassword" />
+            android:inputType="textPassword"
+            android:textSize="25sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
@@ -117,7 +131,9 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
+        android:backgroundTint="#C02681"
         android:text="Sign Up"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilConfirmpassword" />
@@ -129,20 +145,23 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
-        android:text="Sign In"
+        android:layout_marginBottom="32dp"
+        android:text="Already have an account ?  Sign in"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btnSignup" />
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="49dp"
-        android:layout_height="45dp"
+        android:layout_width="57dp"
+        android:layout_height="52dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="24dp"
-        android:layout_marginBottom="32dp"
-        app:layout_constraintBottom_toTopOf="@+id/imageView2"
+        android:background="#8C304F"
         app:layout_constraintEnd_toStartOf="@+id/tilFirstname"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -151,11 +170,14 @@
 
     <ImageView
         android:id="@+id/imageView2"
-        android:layout_width="57dp"
-        android:layout_height="45dp"
+        android:layout_width="67dp"
+        android:layout_height="51dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="45dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="40dp"
+        android:background="#8C304F"
+        app:layout_constraintBottom_toTopOf="@+id/imageView3"
         app:layout_constraintEnd_toStartOf="@+id/tilSecondname"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
@@ -163,11 +185,12 @@
 
     <ImageView
         android:id="@+id/imageView3"
-        android:layout_width="39dp"
-        android:layout_height="43dp"
+        android:layout_width="57dp"
+        android:layout_height="45dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="60dp"
         android:layout_marginEnd="24dp"
+        android:background="#8C304F"
         app:layout_constraintEnd_toStartOf="@+id/tilEmail"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2"
@@ -175,11 +198,12 @@
 
     <ImageView
         android:id="@+id/imageView4"
-        android:layout_width="39dp"
-        android:layout_height="40dp"
+        android:layout_width="54dp"
+        android:layout_height="37dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="49dp"
+        android:layout_marginTop="50dp"
         android:layout_marginEnd="24dp"
+        android:background="#8C304F"
         app:layout_constraintEnd_toStartOf="@+id/tilPassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView3"
@@ -187,11 +211,13 @@
 
     <ImageView
         android:id="@+id/imageView5"
-        android:layout_width="42dp"
+        android:layout_width="51dp"
         android:layout_height="45dp"
         android:layout_marginStart="24dp"
-        android:layout_marginTop="50dp"
         android:layout_marginEnd="24dp"
+        android:layout_marginBottom="50dp"
+        android:background="#8C304F"
+        app:layout_constraintBottom_toTopOf="@+id/tvSignin"
         app:layout_constraintEnd_toStartOf="@+id/tilConfirmpassword"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView4"
