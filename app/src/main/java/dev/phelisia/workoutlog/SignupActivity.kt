@@ -9,6 +9,10 @@ import com.google.android.material.textfield.TextInputEditText
 import com.google.android.material.textfield.TextInputLayout
 
 class SignupActivity : AppCompatActivity() {
+
+    /**
+     * Can be replaced with viewbinding
+     */
     lateinit var tilFirstname:TextInputLayout
     lateinit var etFirstname:TextInputEditText
     lateinit var tilSecondname:TextInputLayout
@@ -39,6 +43,10 @@ class SignupActivity : AppCompatActivity() {
         btnSignup.setOnClickListener {
             validateSignup()
         }
+
+        /**
+         * This cancels the validation and just logs the user in.
+         */
         tvSignin.setOnClickListener {
             val intent=Intent(this,LoginActivity::class.java)
             startActivity(intent)
