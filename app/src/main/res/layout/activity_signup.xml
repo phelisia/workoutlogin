@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFFFF"
+    android:background="@drawable/sign"
     tools:context=".SignupActivity">
 
     <com.google.android.material.textfield.TextInputLayout
@@ -15,7 +15,10 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
-        android:background="#C02681"
+        app:boxCornerRadiusBottomEnd="24dp"
+        app:boxCornerRadiusBottomStart="24dp"
+        app:boxCornerRadiusTopEnd="24dp"
+        app:boxCornerRadiusTopStart="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent">
@@ -40,7 +43,10 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
-        android:background="#C02681"
+        app:boxCornerRadiusBottomEnd="24dp"
+        app:boxCornerRadiusBottomStart="24dp"
+        app:boxCornerRadiusTopEnd="24dp"
+        app:boxCornerRadiusTopStart="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilFirstname">
@@ -51,7 +57,6 @@
             android:layout_height="wrap_content"
             android:hint="@string/enter_second_namee"
             android:inputType="text"
-            android:textColor="#EDE1E1"
             android:textSize="25sp" />
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -63,7 +68,10 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
-        android:background="#C02681"
+        app:boxCornerRadiusBottomEnd="24dp"
+        app:boxCornerRadiusBottomStart="24dp"
+        app:boxCornerRadiusTopEnd="24dp"
+        app:boxCornerRadiusTopStart="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilSecondname"
@@ -88,7 +96,10 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
-        android:background="#C02681"
+        app:boxCornerRadiusBottomEnd="24dp"
+        app:boxCornerRadiusBottomStart="24dp"
+        app:boxCornerRadiusTopEnd="24dp"
+        app:boxCornerRadiusTopStart="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilEmail"
@@ -112,7 +123,10 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="32dp"
         android:layout_marginEnd="24dp"
-        android:background="#C02681"
+        app:boxCornerRadiusBottomEnd="24dp"
+        app:boxCornerRadiusBottomStart="24dp"
+        app:boxCornerRadiusTopEnd="24dp"
+        app:boxCornerRadiusTopStart="24dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilPassword"
