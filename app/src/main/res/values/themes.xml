@@ -17,4 +17,5 @@
     <item name="android:windowBackground">@drawable/spalsh_bg</item>
         <item name="android:windowFullscreen">true</item>
     </style>
+
 </resources>
