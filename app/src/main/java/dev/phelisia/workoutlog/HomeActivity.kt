@@ -9,11 +9,11 @@ import dev.phelisia.workoutlog.databinding.ActivityLoginBinding
 
 class HomeActivity : AppCompatActivity() {
     lateinit var binding: ActivityHomeBinding
-    lateinit var  fcvHome:FragmentContainerView
-    lateinit var bnvHome:BottomNavigationView
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_home)
+        binding=ActivityHomeBinding.inflate(layoutInflater)
+        setContentView(binding.root)
         castViews()
         setBottomNav()
     }
@@ -22,7 +22,7 @@ class HomeActivity : AppCompatActivity() {
         binding.bnvHome
     }
     fun  setBottomNav(){
-        bnvHome.setOnItemSelectedListener{ item->
+        binding.bnvHome.setOnItemSelectedListener{ item->
             when(item.itemId){
                 R.id.plan->{ supportFragmentManager.beginTransaction().replace(R.id.fcvHome,PlanFragment()).commit()
                     true

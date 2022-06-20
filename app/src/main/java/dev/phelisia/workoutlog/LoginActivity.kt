@@ -21,6 +21,9 @@ class LoginActivity : AppCompatActivity() {
 
        binding.btnLogin.setOnClickListener {
             validateLogin()
+             finish()
+
+
 
 
         }
@@ -36,7 +39,7 @@ class LoginActivity : AppCompatActivity() {
         var password=binding.etPassword.text.toString()
         var error=false
         if (email.isBlank()){
-            binding.tilEmail.error=getString(R.string.email_required)
+            binding.tilEmail.error = "password required"
             error=true
         }
         if (password.isBlank()) {
@@ -46,7 +49,7 @@ class LoginActivity : AppCompatActivity() {
 
         if(!error){
             startActivity(Intent(this,HomeActivity::class.java))
-            finish()
+
 
         }
 
