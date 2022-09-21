@@ -3,10 +3,7 @@ package dev.phelisia.workoutlog.viewmodel
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import dev.phelisia.workoutlog.models.LoginRequest
-import dev.phelisia.workoutlog.models.LoginResponse
-import dev.phelisia.workoutlog.models.RegisterRequets
-import dev.phelisia.workoutlog.models.RegisterResponse
+import dev.phelisia.workoutlog.models.*
 import dev.phelisia.workoutlog.repository.UserRepository
 import kotlinx.coroutines.launch
 
@@ -16,6 +13,9 @@ class UserViewModel :ViewModel(){
     val loginErrorLiveData=MutableLiveData<String?>()
     var registerResponseLiveData=MutableLiveData<RegisterResponse>()
     val registerErrorLiveData=MutableLiveData<String?>()
+    var profileResponseLiveData=MutableLiveData<ProfileResponse>()
+    val profileErrorLiveData=MutableLiveData<String?>()
+
 
     fun loginUser(loginRequest: LoginRequest){
         viewModelScope.launch {
@@ -45,4 +45,19 @@ class UserViewModel :ViewModel(){
 
     }
 
+    fun profileUser(profileRequest: ProfileRequest){
+        viewModelScope.launch {
+            val response=userRepository.profileUser(profileRequest)
+            if (response.isSuccessful){
+                profileResponseLiveData.postValue(response.body())
+
+            }else{
+                val error=response.errorBody()?.string()
+                profileErrorLiveData.postValue(error)
+            }
+        }
+
+    }
+
 }
+

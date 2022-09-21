@@ -4,6 +4,7 @@ import dev.phelisia.workoutlog.api.ApiClient
 import dev.phelisia.workoutlog.api.ApiInterface
 import dev.phelisia.workoutlog.models.LoginRequest
 import dev.phelisia.workoutlog.models.LoginResponse
+import dev.phelisia.workoutlog.models.ProfileRequest
 import dev.phelisia.workoutlog.models.RegisterRequets
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -18,6 +19,11 @@ class UserRepository {
 
     suspend fun registerUser(registerRequets: RegisterRequets)= withContext(Dispatchers.IO){
         val response=apiClient.registerUser(registerRequets)
+        return@withContext response
+    }
+
+    suspend fun profileUser(profileRequest: ProfileRequest)= withContext(Dispatchers.IO){
+        val response=apiClient.profile(profileRequest)
         return@withContext response
     }
 }

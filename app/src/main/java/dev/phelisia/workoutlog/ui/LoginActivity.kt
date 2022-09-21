@@ -9,6 +9,7 @@ import android.view.View
 import android.widget.Toast
 import androidx.activity.viewModels
 import androidx.lifecycle.Observer
+import dev.phelisia.workoutlog.Util.Constants
 import dev.phelisia.workoutlog.databinding.ActivityLoginBinding
 import dev.phelisia.workoutlog.models.LoginRequest
 import dev.phelisia.workoutlog.models.LoginResponse
@@ -86,9 +87,10 @@ class LoginActivity : AppCompatActivity() {
 
     fun saveLoginDetails(loginResponse: LoginResponse){
         val editor=sharedPrefs.edit()
-        editor.putString("ACCESS_TOKEN",loginResponse.accessToken)
-        editor.putString("USER_ID",loginResponse.UserId)
-        editor.putString("PROFILE_ID",loginResponse.ProfileId)
+        val token = "Bearer ${loginResponse.accessToken}"
+        editor.putString(Constants.accessToken,token)
+        editor.putString(Constants.userId,loginResponse.UserId)
+        editor.putString(Constants.profileID,loginResponse.ProfileId)
         editor.apply()
 
 
