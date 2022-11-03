@@ -18,7 +18,7 @@ class HomeActivity : AppCompatActivity() {
     lateinit var binding: ActivityHomeBinding
     lateinit var sharedPrefs:SharedPreferences
     val exerciseViewModel:ExerciseViewModel by viewModels()
-    lateinit var sharedPref: SharedPreferences
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,29 +26,44 @@ class HomeActivity : AppCompatActivity() {
         setContentView(binding.root)
         castViews()
         setBottomNav()
-        sharedPref=getSharedPreferences(Constants.prefsFile, MODE_PRIVATE)
-        val token=sharedPref.getString(Constants.accessToken,Constants.EMPTY_STRING)
-        exerciseViewModel.fetchExerciseCategory(token!!)
-        binding.tvlogout.setOnClickListener {
-            val editor=sharedPrefs.edit()
-            editor.putString("ACCESS_TOKEN","")
-            editor.putString("USER_ID","")
-            editor.putString("PROFILE_ID","")
-            editor.apply()
-            startActivity(Intent(this,LoginResponse::class.java))
-        }
+        exerciseViewModel.getDbExerciseCategories()
+        exerciseViewModel.getDbExercises()
+//        val token=sharedPref.getString(Constants.accessToken,Constants.EMPTY_STRING)
+//        exerciseViewModel.fetchExerciseCategory(token!!)
+//        binding.tvlogout.setOnClickListener {
+//            val editor=sharedPrefs.edit()
+//            editor.putString("ACCESS_TOKEN","")
+//            editor.putString("USER_ID","")
+//            editor.putString("PROFILE_ID","")
+//            editor.apply()
+//            startActivity(Intent(this,LoginResponse::class.java))
+//        }
 
 
     }
 
     override fun onResume() {
         super.onResume()
-        exerciseViewModel.exerciseCategoryLiveData.observe(this, Observer { exerciseCategories->
-            Toast.makeText(this,"fetched ${exerciseCategories.size} categories",Toast.LENGTH_LONG).show()
+        exerciseViewModel.exerciseCategoryLiveData.observe(this, Observer { categories->
+            if (categories.isEmpty()){
+                exerciseViewModel.fetchExerciseCategory(getAccessToken())
+            }
+            Toast.makeText(baseContext, "fetched ${categories.size}", Toast.LENGTH_LONG)
+                .show()
+
         })
-        exerciseViewModel.errorLiveData.observe(this, Observer { errorMsg->
-            Toast.makeText(this,errorMsg,Toast.LENGTH_LONG).show()
+        exerciseViewModel.errorLiveData.observe(this, Observer { errorMsg ->
+            Toast.makeText(baseContext, errorMsg, Toast.LENGTH_LONG).show()
         })
+        exerciseViewModel.exerciseLiveData.observe(this, Observer { exercise ->
+            if (exercise.isEmpty()) {
+                exerciseViewModel.fetchApiExercises(getAccessToken())
+            }
+        })
+    }
+    fun getAccessToken(): String {
+        sharedPrefs = getSharedPreferences(Constants.prefsFile, MODE_PRIVATE)
+        return sharedPrefs.getString(Constants.accessToken, "")!!
     }
     fun castViews() {
         binding.fcvHome

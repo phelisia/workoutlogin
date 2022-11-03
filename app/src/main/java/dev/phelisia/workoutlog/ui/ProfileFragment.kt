@@ -16,7 +16,7 @@ import dev.phelisia.workoutlog.viewmodel.UserViewModel
 
 class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
-      private  lateinit var  userViewModel: UserViewModel
+    private lateinit var userViewModel: UserViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -58,7 +58,7 @@ class ProfileFragment : Fragment() {
             binding.tilheight.error = "Email reuired"
         }
         if (!error) {
-            val profilerequest = ProfileRequest(gender,dateofbirth,weight,height)
+            val profilerequest = ProfileRequest(gender, dateofbirth, weight, height)
             userViewModel.profileUser(profilerequest)
 
         }
